@@ -11,14 +11,7 @@
   box-sizing: border-box;
 }
 
-html {
-  font-family: sans-serif;
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+main {
   display: block;
 }
 
@@ -31,6 +24,8 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -38,14 +33,46 @@ body {
 }
 
 hr {
-  box-sizing: content-box;
-  height: 0;
-  overflow: visible;
+  margin: 1rem 0;
+  color: inherit;
+  background-color: currentColor;
+  border: 0;
+  opacity: 0.25;
+}
+
+hr:not([size]) {
+  height: 1px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
 }
 
 p {
@@ -123,27 +150,19 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #206aaf;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #14436e;
   text-decoration: underline;
 }
 
-a:not([href]):not([tabindex]) {
+a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
   color: inherit;
   text-decoration: none;
-}
-
-a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:not([href]):not([tabindex]):focus {
   outline: 0;
 }
 
@@ -287,6 +306,11 @@ legend {
   line-height: inherit;
   color: inherit;
   white-space: normal;
+}
+
+mark {
+  padding: 0.2em;
+  background-color: #fcf8e3;
 }
 
 progress {

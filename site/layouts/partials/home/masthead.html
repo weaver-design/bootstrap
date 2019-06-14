@@ -5,23 +5,26 @@
         {{ partial "icons/bootstrap-stack.svg" (dict "class" "img-fluid mb-3 mb-md-0" "width" "512" "height" "430") }}
       </div>
       <div class="col-md-6 order-md-1 text-center text-md-left pr-md-5">
-        <h1 class="mb-3 bd-text-purple-bright">Bootstrap</h1>
+        <h1 class="mb-3 bd-text-purple-bright">Wootstrap</h1>
         <p class="lead">
-          Build responsive, mobile-first projects on the web with the world’s most popular front-end component library.
+          使用世界最流行的前端组件库，在 Web 上构建响应式的，移动优先的项目
+          <!-- Build responsive, mobile-first projects on the web with the world’s most popular front-end component library. -->
         </p>
         <p class="lead mb-4">
-          Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built with VanillaJS.
+          Wootstrap 是一款专属<a href="#" class="text-decoration-none">「泛微」</a>，
+          使用 HTML, CSS, 以及 JS 开发的 UI 品牌设计工具包。使用我们的 Sass 变量和 mixins，响应式网格系统，广泛的预构建组件以及使用 VanillaJS 构建的强大插件，快速构建您的想法或构建整个应用程序。
+          <!-- Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. Quickly prototype your ideas or build your entire app with our Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful plugins built with VanillaJS. -->
         </p>
         <div class="row mx-n2">
           <div class="col-md px-2">
-            <a href="/docs/{{ .Site.Params.docs_version }}/getting-started/introduction/" class="btn btn-lg btn-bd-primary w-100 mb-3" onclick="ga('send', 'event', 'Jumbotron actions', 'Get started', 'Get started');">Get started</a>
+            <a href="/docs/{{ .Site.Params.docs_version }}/getting-started/introduction/" class="btn btn-lg btn-bd-primary w-100 mb-3" onclick="ga('send', 'event', 'Jumbotron actions', 'Get started', 'Get started');">快速开始</a>
           </div>
           <div class="col-md px-2">
-            <a href="/docs/{{ .Site.Params.docs_version }}/getting-started/download/" class="btn btn-lg btn-outline-secondary w-100 mb-3" onclick="ga('send', 'event', 'Jumbotron actions', 'Download', 'Download {{ .Site.Params.current_version }}');">Download</a>
+            <a href="/docs/{{ .Site.Params.docs_version }}/getting-started/download/" class="btn btn-lg btn-outline-secondary w-100 mb-3" onclick="ga('send', 'event', 'Jumbotron actions', 'Download', 'Download {{ .Site.Params.current_version }}');">下载</a>
           </div>
         </div>
         <p class="text-muted mb-0">
-          Currently v{{ .Site.Params.current_version }}
+          当前版本 v{{ .Site.Params.current_version }}
         </p>
       </div>
     </div>

@@ -263,12 +263,13 @@
       delegationSelector = null;
     }
 
-    for (var _i = 0, _Object$keys = Object.keys(events); _i < _Object$keys.length; _i++) {
-      var uid = _Object$keys[_i];
-      var event = events[uid];
+    var uidEventList = Object.keys(events);
+
+    for (var i = 0, len = uidEventList.length; i < len; i++) {
+      var event = events[uidEventList[i]];
 
       if (event.originalHandler === handler && event.delegationSelector === delegationSelector) {
-        return events[uid];
+        return event;
       }
     }
 
@@ -332,7 +333,7 @@
   function removeHandler(element, events, typeEvent, handler, delegationSelector) {
     var fn = findHandler(events[typeEvent], handler, delegationSelector);
 
-    if (fn === null) {
+    if (!fn) {
       return;
     }
 
