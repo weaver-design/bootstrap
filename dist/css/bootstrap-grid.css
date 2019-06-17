@@ -746,7 +746,7 @@ html {
 }
 
 .border-primary {
-  border-color: #3a91e2 !important;
+  border-color: #1568cc !important;
 }
 
 .border-secondary {
@@ -1630,7 +1630,7 @@ html {
 }
 
 .bg-primary {
-  background-color: #3a91e2 !important;
+  background-color: #1568cc !important;
 }
 
 .bg-secondary {
@@ -1695,11 +1695,11 @@ html {
 }
 
 .rounded {
-  border-radius: 0.25rem !important;
+  border-radius: 0.15rem !important;
 }
 
 .rounded-sm {
-  border-radius: 0.2rem !important;
+  border-radius: 0 !important;
 }
 
 .rounded-lg {
@@ -1719,23 +1719,23 @@ html {
 }
 
 .rounded-top {
-  border-top-left-radius: 0.25rem !important;
-  border-top-right-radius: 0.25rem !important;
+  border-top-left-radius: 0.15rem !important;
+  border-top-right-radius: 0.15rem !important;
 }
 
 .rounded-right {
-  border-top-right-radius: 0.25rem !important;
-  border-bottom-right-radius: 0.25rem !important;
+  border-top-right-radius: 0.15rem !important;
+  border-bottom-right-radius: 0.15rem !important;
 }
 
 .rounded-bottom {
-  border-bottom-right-radius: 0.25rem !important;
-  border-bottom-left-radius: 0.25rem !important;
+  border-bottom-right-radius: 0.15rem !important;
+  border-bottom-left-radius: 0.15rem !important;
 }
 
 .rounded-left {
-  border-bottom-left-radius: 0.25rem !important;
-  border-top-left-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.15rem !important;
+  border-top-left-radius: 0.15rem !important;
 }
 
 @media (min-width: 576px) {
