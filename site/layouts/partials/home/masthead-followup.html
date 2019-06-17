@@ -2,15 +2,15 @@
   <div class="col-md-4 p-3 p-md-5 bg-light border border-white">
     {{ "<!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->" | safeHTML }}
     {{ partial "icons/import.svg" (dict "class" "text-primary mb-2" "width" "32" "height" "32") }}
-    <h3>Installation</h3>
+    <h3>安装</h3>
     <p>Include Bootstrap’s source Sass and JavaScript files via npm, Composer or Meteor. Package managed installs don’t include documentation, but do include our build system and readme.</p>
 
-    {{ highlight "npm install bootstrap" "sh" "" }}
+    {{ highlight "npm install wootstrap" "sh" "" }}
 
-    {{ highlight (printf ("gem install bootstrap -v %s") .Site.Params.current_ruby_version) "sh" "" }}
+    {{ highlight (printf ("gem install wootstrap -v %s") .Site.Params.current_ruby_version) "sh" "" }}
 
     <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="/docs/{{ .Site.Params.docs_version }}/getting-started/download/">Read installation docs</a>
+    <a class="btn btn-outline-primary" href="/docs/{{ .Site.Params.docs_version }}/getting-started/download/">阅读安装说明</a>
   </div>
 
   <div class="col-md-4 p-3 p-md-5 bg-light border border-white">
@@ -27,13 +27,13 @@
 <script src="%s" integrity="%s" crossorigin="anonymous"></script>
 `) .Site.Params.cdn.popper .Site.Params.cdn.popper_hash .Site.Params.cdn.js .Site.Params.cdn.js_hash) "html" "" }}
     <hr class="half-rule">
-    <a class="btn btn-outline-primary" href="/docs/{{ .Site.Params.docs_version }}/layout/overview/">Explore the docs</a>
+    <a class="btn btn-outline-primary" href="/docs/{{ .Site.Params.docs_version }}/layout/overview/">查看文档</a>
   </div>
 
   <div class="col-md-4 p-3 p-md-5 bg-light border border-white">
     {{ "<!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->" | safeHTML }}
     {{ partial "icons/lightning.svg" (dict "class" "text-primary mb-2" "width" "32" "height" "32") }}
-    <h3>Official Themes</h3>
+    <h3>官方主题</h3>
     <p>
       Take Bootstrap 4 to the next level with official premium themes—toolkits built on Bootstrap with new components and plugins, docs, and build tools.
     </p>
@@ -41,6 +41,6 @@
                                                 /docs/{{ .Site.Params.docs_version }}/assets/img/bootstrap-themes@2x.png 2x"
                                         src="/docs/{{ .Site.Params.docs_version }}/assets/img/bootstrap-themes.png" alt="Bootstrap Themes" width="500" height="200">
     <hr class="half-rule">
-    <a href="{{ .Site.Params.themes }}/" class="btn btn-outline-primary">Browse themes</a>
+    <a href="{{ .Site.Params.themes }}/" class="btn btn-outline-primary">更多主题</a>
   </div>
 </div>
