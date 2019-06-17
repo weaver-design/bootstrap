@@ -5287,12 +5287,5 @@ if (typeof jQuery !== 'undefined') {
   };
 }
 
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): index.esm.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
-
 export { Alert, Button, Carousel, Collapse, Dropdown, Modal, Popover, ScrollSpy, Tab, Toast, Tooltip };
 //# sourceMappingURL=bootstrap.esm.js.map
