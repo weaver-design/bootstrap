@@ -1,7 +1,7 @@
 ---
 layout: docs
-title: Introduction
-description: Get started with Bootstrap, the world's most popular framework for building responsive, mobile-first sites, with BootstrapCDN and a template starter page.
+title: 简介 | 译：@Turkyden
+description: 通过 BootstrapCDN 以及开始模板页，使用 Bootstrap 这款全世界最流行的框架，快速搭建用于构建响应式，移动优先的网站。
 group: getting-started
 aliases:
   - "/docs/4.3/getting-started/"
@@ -10,13 +10,13 @@ aliases:
 toc: true
 ---
 
-## Quick start
+## 快速开始
 
-Looking to quickly add Bootstrap to your project? Use BootstrapCDN, provided for free by the folks at StackPath. Using a package manager or need to download the source files? [Head to the downloads page]({{< docsref "/getting-started/download" >}}).
+想知道如何快速添加 Bootstrap 到你的项目中？使用 BootstrapCDN 所提供免费的全球静态资源加速服务。使用包管理器，或者需要下载源码？[请查看下载页面]({{< docsref "/getting-started/download" >}})。
 
 ### CSS
 
-Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
+复制粘贴以下样式表 `<link>` 插入到 `<head>` 中，确保在所有其他样式表之前加载 CSS。
 
 {{< highlight html >}}
 <link rel="stylesheet" href="{{< param "cdn.css" >}}" integrity="{{< param "cdn.css_hash" >}}" crossorigin="anonymous">
