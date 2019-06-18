@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Alerts
+title: Alerts | 译：@Googshs
 description: Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.
 group: components
 aliases:
