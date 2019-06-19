@@ -1,71 +1,70 @@
 ---
 layout: docs
-title: Download
-description: Download Bootstrap to get the compiled CSS and JavaScript, source code, or include it with your favorite package managers like npm, RubyGems, and more.
+title: 下载 | 译：@Turkyden
+description: 下载 Bootstrap 以获取已编译的 CSS 和 JavaScript，源代码，或将其包含在您最喜欢的包管理器中，如 npm，RubyGems 等。
 group: getting-started
 toc: true
 ---
 
-## Compiled CSS and JS
+## 已编译 CSS 和 JS
 
-Download ready-to-use compiled code for **Bootstrap v{{< param current_version >}}** to easily drop into your project, which includes:
+只下载已编译好的 **Bootstrap v{{< param current_version >}}**代码，直接引入你的项目就能使用，这里面包括：
 
-- Compiled and minified CSS bundles (see [CSS files comparison]({{< docsref "/getting-started/contents#css-files" >}}))
-- Compiled and minified JavaScript plugins
+- 已编译和压缩的 CSS 包（参见 [CSS 文件对照表]({{< docsref "/getting-started/contents#css-files" >}})）
+- 已编译和压缩的 JavaScript 插件
 
-This doesn't include documentation, source files, or any optional JavaScript dependencies like Popper.js.
+这里面不包括文档，源代码，或者任何 JavaScript 依赖包比如 Popper.js。
 
-<a href="{{< param "download.dist" >}}" class="btn btn-bd-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download Bootstrap');">Download</a>
+<a href="{{< param "download.dist" >}}" class="btn btn-bd-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download Bootstrap');">快速下载</a>
 
-## Source files
+## 源代码
 
-Compile Bootstrap with your own asset pipeline by downloading our source Sass, JavaScript, and documentation files. This option requires some additional tooling:
+通过下载我们的源码包括 Sass，JavaScript 和文档文件，使用您自己的资产管道编译 Bootstrap。此选项需要一些额外的工具：
 
-- Sass compiler (Libsass or Ruby Sass is supported) for compiling your CSS.
-- [Autoprefixer](https://github.com/postcss/autoprefixer) for CSS vendor prefixing
+- 用于编译 CSS 的 Sass 编译器（支持 Libsass 或 Ruby Sass）
+- 用于为 CSS 添加前缀的插件 [Autoprefixer](https://github.com/postcss/autoprefixer)
 
-Should you require [build tools]({{< docsref "/getting-started/build-tools#tooling-setup" >}}), they are included for developing Bootstrap and its docs, but they're likely unsuitable for your own purposes.
+如果您需要[构建工具]({{< docsref "/getting-started/build-tools#tooling-setup" >}})，它们包含在开发 Bootstrap 及其文档中，但它们可能不一定符合您的心意。
 
-<a href="{{< param "download.source" >}}" class="btn btn-bd-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
+<a href="{{< param "download.source" >}}" class="btn btn-bd-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">下载源码</a>
 
 ## BootstrapCDN
 
-Skip the download with [BootstrapCDN](https://www.bootstrapcdn.com/) to deliver cached version of Bootstrap's compiled CSS and JS to your project.
+跳过下载，使用 [BootstrapCDN](https://www.bootstrapcdn.com/) 将 Bootstrap 的已编译 CSS 和 JS 的缓存版本加入你的项目。
 
 {{< highlight html >}}
 <link rel="stylesheet" href="{{< param "cdn.css" >}}" integrity="{{< param "cdn.css_hash" >}}" crossorigin="anonymous">
 <script src="{{< param "cdn.js" >}}" integrity="{{< param "cdn.js_hash" >}}" crossorigin="anonymous"></script>
 {{< /highlight >}}
 
-If you're using our compiled JavaScript, don't forget to include Popper.js, via a CDN preferably, before our JS.
+如果您正在使用我们编译的 JavaScript，请不要忘记在我们的JS之前通过 CDN 优先包含 Popper.js。
 
 {{< highlight html >}}
 <script src="{{< param "cdn.popper" >}}" integrity="{{< param "cdn.popper_hash" >}}" crossorigin="anonymous"></script>
 {{< /highlight >}}
 
-## Package managers
+## 包管理工具
 
-Pull in Bootstrap's **source files** into nearly any project with some of the most popular package managers. No matter the package manager, Bootstrap will **require a Sass compiler and [Autoprefixer](https://github.com/postcss/autoprefixer)** for a setup that matches our official compiled versions.
+将 Bootstrap 的**源代码**引入到几乎所有项目中，其中包含一些最受欢迎的软件包管理器。无论什么包管理器，Bootstrap 都需要一个 **Sass 编译器**和 [Autoprefixer](https://github.com/postcss/autoprefixer) 来进行与我们官方编译版本相匹配的设置。
 
 ### npm
 
-Install Bootstrap in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/bootstrap):
+在 Node.js 驱动的应用程序中，使用 [npm](https://www.npmjs.com/package/bootstrap) 包安装 Bootstrap：
 
 {{< highlight sh >}}
 npm install bootstrap
 {{< /highlight >}}
 
-`const bootstrap = require('bootstrap')` or `import bootstrap from 'bootstrap'` will load all of Bootstrap's plugins onto a `bootstrap` object.
-The `bootstrap` module itself exports all of our plugins. You can manually load Bootstrap's plugins individually by loading the `/js/dist/*.js` files under the package's top-level directory.
+`const bootstrap = require('bootstrap')` 或者 `import bootstrap from 'bootstrap'` 将加载 Bootstrap 中所有的插件到一个 `bootstrap` 对象上。这个 `bootstrap` 模块本身已经导出了所有的插件。您可以通过在程序包的顶级目录下加载 `/js/dist/*.js` 文件来单独手动加载 Bootstrap 的插件。
 
-Bootstrap's `package.json` contains some additional metadata under the following keys:
+Bootstrap 的 `package.json` 中包含了以下关键的一些其他元信息：
 
-- `sass` - path to Bootstrap's main [Sass](https://sass-lang.com/) source file
-- `style` - path to Bootstrap's non-minified CSS that's been precompiled using the default settings (no customization)
+- `sass` - Bootstrap 的 [Sass](https://sass-lang.com/) 文件主要入口路径
+- `style` - Bootstrap 使用默认设置预编译的非压缩 CSS 的路径 (未定制)
 
 ### yarn
 
-Install Bootstrap in your Node.js powered apps with [the yarn package](https://yarnpkg.com/en/package/bootstrap):
+在你 Node.js 驱动的应用程序中使用 [yarn 包管理](https://yarnpkg.com/en/package/bootstrap) 安装 Bootstrap：
 
 {{< highlight sh >}}
 yarn add bootstrap
@@ -73,23 +72,23 @@ yarn add bootstrap
 
 ### RubyGems
 
-Install Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html):
+在你的 Ruby 应用中使用 [Bundler](https://bundler.io/) (**推荐**) 和 [RubyGems](https://rubygems.org/) 下载 Bootstrap，请在你的 [`Gemfile`](https://bundler.io/gemfile.html) 中添加以下：
 
 {{< highlight ruby >}}
 gem 'bootstrap', '~> {{< param current_ruby_version >}}'
 {{< /highlight >}}
 
-Alternatively, if you're not using Bundler, you can install the gem by running this command:
+或者，如果您不使用Bundler，则可以通过运行以下命令来安装gem：
 
 {{< highlight sh >}}
 gem install bootstrap -v {{< param current_ruby_version >}}
 {{< /highlight >}}
 
-[See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details.
+更多内容请查阅 [gem README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) 说明文档。
 
 ### Composer
 
-You can also install and manage Bootstrap's Sass and JavaScript using [Composer](https://getcomposer.org/):
+您还可以使用 [Composer](https://getcomposer.org/) 安装和管理 Bootstrap 的 Sass 和 JavaScript：
 
 {{< highlight sh >}}
 composer require twbs/bootstrap:{{< param current_version >}}
@@ -97,7 +96,7 @@ composer require twbs/bootstrap:{{< param current_version >}}
 
 ### NuGet
 
-If you develop in .NET, you can also install and manage Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/bootstrap.sass/) and JavaScript using [NuGet](https://www.nuget.org/):
+如果您使用 .NET 开发，您还可以使用 [NuGet](https://www.nuget.org/) 安装和管理 Bootstrap 的 [CSS](https://www.nuget.org/packages/bootstrap/) 或 [Sass](https://www.nuget.org/packages/bootstrap.sass/) 和 JavaScript：
 
 {{< highlight powershell >}}
 Install-Package bootstrap
