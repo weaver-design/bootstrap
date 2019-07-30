@@ -1,14 +1,18 @@
 ---
 layout: docs
-title: Contents
-description: Discover what's included in Bootstrap, including our precompiled and source code flavors.
+title: 内容 | 译：@GitHuboooSHY
+description: 了解Bootstrap中包含的内容，包括我们的预编译和源代码风格。
 group: getting-started
+aliases:
+  - "/docs/4.3/getting-started/"
+  - "/docs/getting-started/"
+  - "/getting-started/"
 toc: true
 ---
 
-## Precompiled Bootstrap
+## 预编译的 Bootstrap
 
-Once downloaded, unzip the compressed folder and you'll see something like this:
+下载后，解压缩压缩文件夹，你会看到这样的东西：
 
 <!-- NOTE: This info is intentionally duplicated in the README. Copy any changes made here over to the README too, but be sure to keep in mind to add the `dist` folder. -->
 
@@ -42,11 +46,11 @@ bootstrap/
     └── bootstrap.min.js.map
 {{< /highlight >}}
 
-This is the most basic form of Bootstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (`bootstrap.*`), as well as compiled and minified CSS and JS (`bootstrap.min.*`). [source maps](https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps) (`bootstrap.*.map`) are available for use with certain browsers' developer tools. Bundled JS files (`bootstrap.bundle.js` and minified `bootstrap.bundle.min.js`) include [Popper](https://popper.js.org/).
+这是 Bootstrap 最基本的形式：预编译的文件，几乎可以在任何Web项目中快速使用。 我们提供编译好的 CSS 和 JS(`bootstrap.*`), 以及它们的压缩版本 (`bootstrap.min.*`)。[源映射](https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps)（`bootstrap.* .map`）可用于某些浏览器的开发人员工具。捆绑的JS文件（`bootstrap.bundle.js` 和 `minified bootstrap.bundle.min.js`）包括[Popper](https://popper.js.org/)。
 
-## CSS files
+## CSS 文件
 
-Bootstrap includes a handful of options for including some or all of our compiled CSS.
+Bootstrap 包含一些选项，用于包含部分或全部编译的 CSS。
 
 <table class="table table-bordered">
   <thead>
@@ -92,9 +96,9 @@ Bootstrap includes a handful of options for including some or all of our compile
   </tbody>
 </table>
 
-## JS files
+## JS 文件
 
-Similarly, we have options for including some or all of our compiled JavaScript.
+同样，我们可以选择包含部分或全部已编译的 JavaScript。
 
 <table class="table table-bordered">
   <thead>
@@ -121,9 +125,9 @@ Similarly, we have options for including some or all of our compiled JavaScript.
   </tbody>
 </table>
 
-## Bootstrap source code
+## Bootstrap 源代码
 
-The Bootstrap source code download includes the precompiled CSS and JavaScript assets, along with source Sass, JavaScript, and documentation. More specifically, it includes the following and more:
+Bootstrap 源代码下载包括预编译的 CSS 和 JavaScript 资产，以及源 Sass，JavaScript 和文档。 更具体地说，它包括以下内容：
 
 {{< highlight text >}}
 bootstrap/
@@ -139,4 +143,4 @@ bootstrap/
 └── scss/
 {{< /highlight >}}
 
-The `scss/` and `js/` are the source code for our CSS and JavaScript. The `dist/` folder includes everything listed in the precompiled download section above. The `site/docs/` folder includes the source code for our documentation, and `examples/` of Bootstrap usage. Beyond that, any other included file provides support for packages, license information, and development.
+scss / 和js / 是我们的CSS和JavaScript的源代码。dist /文件夹包含上面预编译下载部分中列出的所有内容。site / docs / 文件夹包含我们文档的源代码和Bootstrap用法示例。除此之外，任何其他包含的文件都提供对文件包，许可证信息和开发的支持
