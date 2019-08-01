@@ -1,20 +1,24 @@
 ---
 layout: docs
-title: JavaScript
-description: Bring Bootstrap to life with our optional JavaScript plugins. Learn about each plugin, our data and programmatic API options, and more.
+title: JavaScript | 译：@GitHuboooSHY
+description: 可选的 JavaScript 插件为 Bootstrap 注入活力。 了解熟悉每个插件，以及数据和编程 API 选项等。
 group: getting-started
+aliases:
+  - "/docs/4.3/getting-started/"
+  - "/docs/getting-started/"
+  - "/getting-started/"
 toc: true
 ---
 
-## Individual or compiled
+## 单独调用或整合调用
 
-Plugins can be included individually (using Bootstrap's individual `js/dist/*.js`), or all at once using `bootstrap.js` or the minified `bootstrap.min.js` (don't include both).
+可以单独调用插件（使用 Bootstrap 单个的js文件  `js/dist/*.js`），也可以一次性使用 `bootstrap.js` 或压缩后的 `bootstrap.min.js` （不要同时调用两者）
 
-If you use a bundler (Webpack, Rollup...), you can use `/js/dist/*.js` files which are UMD ready.
+`/js/dist/*.js` 文件已经 UMD 就绪，可以用于(Webpack, Rollup...)这样的打包工具。
 
-## Using Bootstrap as a module
+## 以 module 的形式调用 Bootstrap
 
-We provide a version of Bootstrap built as `ESM` (`bootstrap.esm.js` and `bootstrap.esm.min.js`) which allows you to use Bootstrap as a module in your browser, if your [targeted browsers support it](https://caniuse.com/#feat=es6-module).
+我们提供了一个构建为 `ESM`（`bootstrap.esm.js` 和 `bootstrap.esm.min.js`）的 Bootstrap 版本，它允许您在浏览器中使用 Bootstrap 作为 module，如果您的[目标浏览器支持它](https://caniuse.com/#feat=es6-module)。
 
 {{< highlight html >}}
 <script type="module">
@@ -26,33 +30,32 @@ We provide a version of Bootstrap built as `ESM` (`bootstrap.esm.js` and `bootst
 {{< /highlight >}}
 
 {{< callout warning >}}
-## Incompatible plugins
+## 不兼容的插件
 
-Due to browser limitations, some of our plugins, namely Dropdown, Tooltip and Popover plugins, cannot be used in a `<script>` tag with `module` type because they depend on Popper.js. For more information about the issue see [here](https://developers.google.com/web/fundamentals/primers/modules#specifiers).
+由于浏览器的限制，我们的一些插件，即 Dropdown，Tooltip 和 Popover 插件，不能在带有 `module` 类型的 `<script>` 标签中使用，因为它们依赖于 Popper.js。 [了解更多](https://developers.google.com/web/fundamentals/primers/modules#specifiers).
 {{< /callout >}}
 
-## Dependencies
+## 插件依赖
 
-Some plugins and CSS components depend on other plugins. If you include plugins individually, make sure to check for these dependencies in the docs.
+一些插件和 CSS 组件依赖其他的插件。在独立地调用某个插件之前，请确认它所依赖的环境在文档中部署就绪。
+ 
+例如我们的 dropdowns, popovers 和 tooltips 也取决于[ Popper.js](https://popper.js.org/)。
 
-Our dropdowns, popovers and tooltips also depend on [Popper.js](https://popper.js.org/).
+## Data 属性
 
-## Data attributes
-
-Nearly all Bootstrap plugins can be enabled and configured through HTML alone with data attributes (our preferred way of using JavaScript functionality). Be sure to **only use one set of data attributes on a single element** (e.g., you cannot trigger a tooltip and modal from the same button.)
+几乎所有的 Bootstrap 插件都可以通过 HTML 单独使用 data 属性（我们使用 JavaScript 功能的首选方式）来启用和配置。确保在**单个元素上仅使用一组 data 属性**（例如，你无法在同一个 button 元素上触发 tooltip 和 modal 。）
 
 {{< callout warning >}}
-## Selectors
+## 选择器
 
-Currently to query DOM elements we use the native methods `querySelector` and `querySelectorAll` for performance reasons, so you have to use [valid selectors](https://www.w3.org/TR/CSS21/syndata.html#value-def-identifier).
-If you use special selectors, for example: `collapse:Example` be sure to escape them.
+出于性能原因，一般我们使用原生函式 `querySelector` 和 `querySelectorAll` 去选择 DOM 元素，，因此你必须使用[有效的选择器](https://www.w3.org/TR/CSS21/syndata.html#value-def-identifier)。 如果使用特殊选择器，例如：`collapse:Example` 示例请务必转义它们。
 {{< /callout >}}
 
-## Events
+## 事件
 
-Bootstrap provides custom events for most plugins' unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. `show`) is triggered at the start of an event, and its past participle form (ex. `shown`) is triggered on the completion of an action.
+Bootstrap 为大多数插件的特有行为提供自定义事件。 通常，它们以不定式和过去的分词形式命名 - 在事件开始时触发不定式（例如 `show` ），并且在动作完成时触发其过去的分词形式（例如 `shown` ）。
 
-All infinitive events provide [`preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) functionality. This provides the ability to stop the execution of an action before it starts. Returning false from an event handler will also automatically call `preventDefault()`.
+所有不定式事件都提供 [`preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) 功能。 能在动作开始之前阻止它执行。 事件处理程序返回 false 也会自动调用 `preventDefault ()`。
 
 {{< highlight js >}}
 var myModal = document.getElementById('myModal')
@@ -64,9 +67,9 @@ myModal.addEventListener('show.bs.modal', function (e) {
 })
 {{< /highlight >}}
 
-## Programmatic API
+## 编程 API
 
-All constructors accept an optional options object or nothing (which initiates a plugin with its default behavior):
+所有构造函数都可以有一个可选的选项对象或什么都没有（它启动一个具有默认行为的插件）：
 
 {{< highlight js >}}
 var myModalEl = document.getElementById('myModal')
@@ -75,13 +78,13 @@ var modal = new bootstrap.Modal(myModalEl) // initialized with defaults
 var modal = new bootstrap.Modal(myModalEl, { keyboard: false }) // initialized with no keyboard
 {{< /highlight >}}
 
-If you'd like to get a particular plugin instance, each plugin exposes a `_getInstance` method. In order to retrieve it directly from an element, do this: `bootstrap.Popover._getInstance(myPopoverEl)`.
+如果您想获得特定的插件实例，每个插件都会公开一个 `_getInstance` 方法。 要直接从元素中检索它，请执行以下操作：`bootstrap.Popover._getInstance（myPopoverEl）`。
 
-### Asynchronous functions and transitions
+### 异步函数和转换
 
-All programmatic API methods are **asynchronous** and return to the caller once the transition is started but **before it ends**.
+所有编程 API 方法都是**异步**的，在**转换结束前**返回给调用者。
 
-In order to execute an action once the transition is complete, you can listen to the corresponding event.
+为了在转换完成后立刻执行动作，你可以对相应的事件进行监听。
 
 {{< highlight js >}}
 var myCollapseEl = document.getElementById('#myCollapse')
@@ -91,7 +94,7 @@ myCollapseEl.addEventListener('shown.bs.collapse', function (e) {
 })
 {{< /highlight >}}
 
-In addition a method call on a **transitioning component will be ignored**.
+此外，对**转换组件**的方法调用将无效。
 
 {{< highlight js >}}
 var myCarouselEl = document.getElementById('myCarousel')
@@ -105,47 +108,46 @@ carousel.to('1') // Will start sliding to the slide 1 and returns to the caller
 carousel.to('2') // !! Will be ignored, as the transition to the slide 1 is not finished !!
 {{< /highlight >}}
 
-### Default settings
+### 默认设置
 
-You can change the default settings for a plugin by modifying the plugin's `Constructor.Default` object:
+您可以通过修改插件的 `Constructor.Default` 对象来更改插件的默认设置：
 
 {{< highlight js >}}
 // changes default for the modal plugin's `keyboard` option to false
 bootstrap.Modal.Default.keyboard = false
 {{< /highlight >}}
 
-## No conflict (only if you use jQuery)
+## 冲突问题处理 (必须使用 jQuery)
 
-Sometimes it is necessary to use Bootstrap plugins with other UI frameworks. In these circumstances, namespace collisions can occasionally occur. If this happens, you may call `.noConflict` on the plugin you wish to revert the value of.
+有时需要将 Bootstrap 插件与其他 UI 框架一起使用。 在这些情况下，偶尔会发生命名空间冲突。 如果发生这种情况，您可以在要恢复值的插件上调用 `.noConflict`。
 
 {{< highlight js >}}
 var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previously assigned value
 $.fn.bootstrapBtn = bootstrapButton // give $().bootstrapBtn the Bootstrap functionality
 {{< /highlight >}}
 
-## Version numbers
+## 版本号
 
-The version of each of Bootstrap's plugins can be accessed via the `VERSION` property of the plugin's constructor. For example, for the tooltip plugin:
+可以通过插件构造函数的 `VERSION` 属性访问每个 Bootstrap 插件的版本。例如，对于工具提示插件：
 
 {{< highlight js >}}
 bootstrap.Tooltip.VERSION // => "{{< param current_version >}}"
 {{< /highlight >}}
 
-## No special fallbacks when JavaScript is disabled
+## 禁用 JavaScript 时没有特殊的 fallbacks
 
-Bootstrap's plugins don't fall back particularly gracefully when JavaScript is disabled. If you care about the user experience in this case, use [`<noscript>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript) to explain the situation (and how to re-enable JavaScript) to your users, and/or add your own custom fallbacks.
+禁用 JavaScript 时，Bootstrap 的插件不会完美地抽离。如果您关心这种情况下的用户体验，请使用 [`<noscript>` ](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript)向用户解释情况（以及如何重新启用JavaScript），亦或添加自己的自定义 fallbacks。
 
 {{< callout warning >}}
-##### Third-party libraries
+##### 第三方库
 
-**Bootstrap does not officially support third-party JavaScript libraries** like Prototype or jQuery UI. Despite `.noConflict` and namespaced events, there may be compatibility problems that you need to fix on your own.
-{{< /callout >}}
+**Bootstrap 不正式支持 Prototype 或 jQuery UI 等第三方 JavaScript 库**。 尽管 .noConflict 和命名空间事件，但您可能需要自行修复兼容性问题。{{< /callout >}}
 
 ## Sanitizer
 
-Tooltips and Popovers use our built-in sanitizer to sanitize options which accept HTML.
+Tooltips 和 Popovers 插件使用我们的内置 sanitizer 来清空接受 HTML 的选项。
 
-The default `whiteList` value is the following:
+默认的 `whiteList` 值如下：
 
 {{< highlight js >}}
 var ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i
@@ -184,7 +186,7 @@ var DefaultWhitelist = {
 }
 {{< /highlight >}}
 
-If you want to add new values to this default `whiteList` you can do the following:
+如果要向此默认 `whiteList` 添加新值，执行以下操作：
 
 {{< highlight js >}}
 var myDefaultWhiteList = bootstrap.Tooltip.Default.whiteList
@@ -201,7 +203,7 @@ var myCustomRegex = /^data-my-app-[\w-]+/
 myDefaultWhiteList['*'].push(myCustomRegex)
 {{< /highlight >}}
 
-If you want to bypass our sanitizer because you prefer to use a dedicated library, for example [DOMPurify](https://www.npmjs.com/package/dompurify), you should do the following:
+如果你想使用专用库而不是我们的 sanitizer ，例如 `DOMPurify`，则应执行以下操作：
 
 {{< highlight js >}}
 var yourTooltipEl = document.getElementById('yourTooltip')
