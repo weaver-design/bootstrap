@@ -1,28 +1,32 @@
 ---
 layout: docs
-title: Browsers and devices
-description: Learn about the browsers and devices, from modern to old, that are supported by Bootstrap, including known quirks and bugs for each.
+title: 浏览器和设备 | 译：@GitHuboooSHY
+description: 了解Bootstrap支持的从现代到旧的浏览器和设备，包括每个浏览器和设备的已知怪癖和错误。
 group: getting-started
+aliases:
+  - "/docs/4.3/getting-started/"
+  - "/docs/getting-started/"
+  - "/getting-started/"
 toc: true
 ---
 
-## Supported browsers
+## 支持的浏览器
 
-Bootstrap supports the **latest, stable releases** of all major browsers and platforms. On Windows, **we support Internet Explorer 11 / Microsoft Edge**.
+Bootstrap 支持所有主流浏览器和平台的**最新稳定版本**。 在 Windows 上，**我们支持 Internet Explorer 11 / Microsoft Edge**。
 
-Alternative browsers which use the latest version of WebKit, Blink, or Gecko, whether directly or via the platform's web view API, are not explicitly supported. However, Bootstrap should (in most cases) display and function correctly in these browsers as well. More specific support information is provided below.
+使用最新版本的 WebKit，Blink 或 Gecko 的其他浏览器，无论直接或通过平台的 Web 访问 API，都未得到明确支持。 但是，Bootstrap 应该（在大多数情况下）在这些浏览器中正确显示和运行。 下面提供了更具体的支持信息。
 
-You can find our supported range of browsers and their versions [in our `.browserslistrc file`]({{< param repo >}}/blob/v{{< param current_version >}}/.browserslistrc):
+您可以在我们的[ `.browserslistrc file` ]({{< param repo >}}/blob/v{{< param current_version >}}/.browserslistrc)上找到我们支持的浏览器及其版本 :
 
 ```text
 {{< rf.inline >}}{{ readFile ".browserslistrc" | htmlEscape }}{{< /rf.inline >}}
 ```
 
-We use [Autoprefixer](https://github.com/postcss/autoprefixer) to handle intended browser support via CSS prefixes, which uses [Browserslist](https://github.com/browserslist/browserslist) to manage these browser versions. Consult their documentation for how to integrate these tools into your projects.
+我们使用 [Autoprefixer](https://github.com/postcss/autoprefixer) 通过 CSS 前缀处理预期的浏览器支持，CSS 前缀使用 [Browserslist](https://github.com/browserslist/browserslist) 来管理这些浏览器版本。有关如何将这些工具集成到项目中的信息，请参阅其文档
 
-### Mobile devices
+### 移动设备
 
-Generally speaking, Bootstrap supports the latest versions of each major platform's default browsers. Note that proxy browsers (such as Opera Mini, Opera Mobile's Turbo mode, UC Browser Mini, Amazon Silk) are not supported.
+一般来说，Bootstrap 支持每个主要平台的默认浏览器的最新版本。请注意，不支持代理浏览器（如 Opera Mini，Opera Mobile 的 Turbo 模式，UC Browser Mini，Amazon Silk）。
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -63,9 +67,9 @@ Generally speaking, Bootstrap supports the latest versions of each major platfor
   </tbody>
 </table>
 
-### Desktop browsers
+### 桌面端浏览器
 
-Similarly, the latest versions of most desktop browsers are supported.
+同样，支持大多数桌面浏览器的最新版本。
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -101,38 +105,38 @@ Similarly, the latest versions of most desktop browsers are supported.
   </tbody>
 </table>
 
-For Firefox, in addition to the latest normal stable release, we also support the latest [Extended Support Release (ESR)](https://www.mozilla.org/en-US/firefox/organizations/#faq) version of Firefox.
+对于 Firefox，除了最新的正常稳定版本外，我们还支持最新的 Firefox [扩展支持版本（ESR版本）](https://www.mozilla.org/en-US/firefox/organizations/#faq)。
 
-Unofficially, Bootstrap should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 9, though they are not officially supported.
+当然，Bootstrap 应该在 Chromium 和 Chrome for Linux，Firefox for Linux 和 Internet Explorer 9 上完美运行，尽管它们不受官方支持。
 
-For a list of some of the browser bugs that Bootstrap has to grapple with, see our [Wall of browser bugs]({{< docsref "/browser-bugs" >}}).
+有关Bootstrap必须解决的一些浏览器错误的列表，请参阅我们的 [Wall of browser bugs]({{< docsref "/browser-bugs" >}})。
 
-## Internet Explorer
+## IE 浏览器
 
-Internet Explorer 11 is supported; IE10 and down is not. Please be aware that some CSS3 properties and HTML5 elements are not fully supported in IE10, or require prefixed properties for full functionality. Visit [Can I use...](https://caniuse.com/) for details on browser support of CSS3 and HTML5 features. **If you require IE8-9 support, use Bootstrap 3.**
+不支持 IE 11 以下的版本。请注意，IE 10 中不完全支持某些 CSS3 属性和 HTML5 元素，或者需要前缀属性才能获得完整功能。 访问 [Can I use...](https://caniuse.com/) 了解有关 CSS3 和 HTML5 功能的浏览器支持的详细信息。 **如果你要求支持 IE8-9, 请使用 Bootstrap 3.**
 
-## Modals and dropdowns on mobile
+## 移动设备上的模态框和下拉菜单
 
-### Overflow and scrolling
+### 溢出和滚动
 
-Support for `overflow: hidden;` on the `<body>` element is quite limited in iOS and Android. To that end, when you scroll past the top or bottom of a modal in either of those devices' browsers, the `<body>` content will begin to scroll. See [Chrome bug #175502](https://bugs.chromium.org/p/chromium/issues/detail?id=175502) (fixed in Chrome v40) and [WebKit bug #153852](https://bugs.webkit.org/show_bug.cgi?id=153852).
+支持 `overflow: hidden` ; `<body>` 元素在 iOS 和 Android 上非常有限。为此，当你在这些设备的浏览器中滑动经过模态框的顶部或底部时，`<body>` 内容将开始滚动。 请参阅 [Chrome bug #175502](https://bugs.chromium.org/p/chromium/issues/detail?id=175502) (fixed in Chrome v40) 和 [WebKit bug #153852](https://bugs.webkit.org/show_bug.cgi?id=153852).
 
-### iOS text fields and scrolling
+### iOS文本字段和滚动
 
-As of iOS 9.2, while a modal is open, if the initial touch of a scroll gesture is within the boundary of a textual `<input>` or a `<textarea>`, the `<body>` content underneath the modal will be scrolled instead of the modal itself. See [WebKit bug #153856](https://bugs.webkit.org/show_bug.cgi?id=153856).
+从iOS 9.2开始，当模态打开时，如果滚动手势的初始触摸位于文本 `<input>` 或 `<textarea>` 的边界内，则模态下面的 `<body>` 内容将滚动而不是模态本身。 See [WebKit bug #153856](https://bugs.webkit.org/show_bug.cgi?id=153856).
 
-### Navbar Dropdowns
+### 导航下拉菜单
 
-The `.dropdown-backdrop` element isn't used on iOS in the nav because of the complexity of z-indexing. Thus, to close dropdowns in navbars, you must directly click the dropdown element (or [any other element which will fire a click event in iOS](https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile)).
+由于 z-indexing 的复杂性，iOS 的导航不使用 `.dropdown-backdrop` 元素。因此，要关闭导航栏中的下拉列表，只能单击下拉元素或[将在iOS中触发单击事件的任何其他元素](https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile)。
 
-## Browser zooming
+## 浏览器缩放
 
-Page zooming inevitably presents rendering artifacts in some components, both in Bootstrap and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than hacky workarounds.
+页面缩放不可避免地在Bootstrap和Web的其余部分呈现某些组件中的渲染小部件。根据问题，我们可以修复它（首先搜索，然后在需要时打开问题）。 但是，我们倾向于忽略这些，因为除了黑客变通方法之外，它们通常没有直接的解决方案。
 
-## Validators
+## 验证器
 
-In order to provide the best possible experience to old and buggy browsers, Bootstrap uses [CSS browser hacks](http://browserhacks.com/) in several places to target special CSS to certain browser versions in order to work around bugs in the browsers themselves. These hacks understandably cause CSS validators to complain that they are invalid. In a couple places, we also use bleeding-edge CSS features that aren't yet fully standardized, but these are used purely for progressive enhancement.
+为了给旧的和会出现问题的浏览器提供最好的体验，Bootstrap 在几个地方使用 [ CSS browser hacks ](http://browserhacks.com/) 将特定的CSS定位到某些浏览器版本，以便解决浏览器本身的错误。通常这些 [ CSS browser hacks ](http://browserhacks.com/) 会被 CSS 验证器 声明是无效的。在一些地方，我们还使用尚未完全标准化的前沿 CSS 功能，但这些功能仅用于**渐进增强** （ 针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验 ）。
 
-These validation warnings don't matter in practice since the non-hacky portion of our CSS does fully validate and the hacky portions don't interfere with the proper functioning of the non-hacky portion, hence why we deliberately ignore these particular warnings.
+这些验证警告在实践中无关紧要，因为我们的 CSS 的非 hacky 部分确实完全验证并且 hacky 部分不会干扰非 hacky 部分的正常运行，因此我们故意忽略这些特定警告。
 
-Our HTML docs likewise have some trivial and inconsequential HTML validation warnings due to our inclusion of a workaround for [a certain Firefox bug](https://bugzilla.mozilla.org/show_bug.cgi?id=654072).
+由于我们包含针对某个[ Firefox 错误 ](https://bugzilla.mozilla.org/show_bug.cgi?id=654072)的变通方法，因此我们的HTML文档同样具有一些微不足道且无关紧要的 HTML 验证警告。.
