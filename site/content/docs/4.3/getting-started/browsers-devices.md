@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: 浏览器和设备 | 译：@GitHuboooSHY
-description: 了解Bootstrap支持的从现代到旧的浏览器和设备，包括每个浏览器和设备的已知怪癖和错误。
+description: 了解 Bootstrap 支持的从现代到旧的浏览器和设备，包括每个浏览器和设备的已知怪癖和错误。
 group: getting-started
 aliases:
   - "/docs/4.3/getting-started/"
@@ -109,7 +109,7 @@ Bootstrap 支持所有主流浏览器和平台的**最新稳定版本**。 在 W
 
 当然，Bootstrap 应该在 Chromium 和 Chrome for Linux，Firefox for Linux 和 Internet Explorer 9 上完美运行，尽管它们不受官方支持。
 
-有关Bootstrap必须解决的一些浏览器错误的列表，请参阅我们的 [Wall of browser bugs]({{< docsref "/browser-bugs" >}})。
+有关 Bootstrap 必须解决的一些浏览器错误的列表，请参阅我们的 [Wall of browser bugs]({{< docsref "/browser-bugs" >}})。
 
 ## IE 浏览器
 
@@ -121,9 +121,9 @@ Bootstrap 支持所有主流浏览器和平台的**最新稳定版本**。 在 W
 
 支持 `overflow: hidden` ; `<body>` 元素在 iOS 和 Android 上非常有限。为此，当你在这些设备的浏览器中滑动经过模态框的顶部或底部时，`<body>` 内容将开始滚动。 请参阅 [Chrome bug #175502](https://bugs.chromium.org/p/chromium/issues/detail?id=175502) (fixed in Chrome v40) 和 [WebKit bug #153852](https://bugs.webkit.org/show_bug.cgi?id=153852).
 
-### iOS文本字段和滚动
+### iOS 文本字段和滚动
 
-从iOS 9.2开始，当模态打开时，如果滚动手势的初始触摸位于文本 `<input>` 或 `<textarea>` 的边界内，则模态下面的 `<body>` 内容将滚动而不是模态本身。 See [WebKit bug #153856](https://bugs.webkit.org/show_bug.cgi?id=153856).
+从 iOS 9.2 开始，当模态打开时，如果滚动手势的初始触摸位于文本 `<input>` 或 `<textarea>` 的边界内，则模态下面的 `<body>` 内容将滚动而不是模态本身。 See [WebKit bug #153856](https://bugs.webkit.org/show_bug.cgi?id=153856).
 
 ### 导航下拉菜单
 
@@ -131,7 +131,7 @@ Bootstrap 支持所有主流浏览器和平台的**最新稳定版本**。 在 W
 
 ## 浏览器缩放
 
-页面缩放不可避免地在Bootstrap和Web的其余部分呈现某些组件中的渲染小部件。根据问题，我们可以修复它（首先搜索，然后在需要时打开问题）。 但是，我们倾向于忽略这些，因为除了黑客变通方法之外，它们通常没有直接的解决方案。
+页面缩放不可避免地在 Bootstrap 和 Web 的其余部分呈现某些组件中的渲染小部件。根据问题，我们可以修复它（首先搜索，然后在需要时打开问题）。 但是，我们倾向于忽略这些，因为除了黑客变通方法之外，它们通常没有直接的解决方案。
 
 ## 验证器
 
