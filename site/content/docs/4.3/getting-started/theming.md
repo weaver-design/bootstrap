@@ -1,24 +1,28 @@
 ---
 layout: docs
-title: Theming Bootstrap
-description: Customize Bootstrap 4 with our new built-in Sass variables for global style preferences for easy theming and component changes.
+title: 自定义 Bootstrap 主题 | 译：@GitHuboooSHY
+description: 使用我们新的内置 Sass 变量自定义 Bootstrap 4，以获得全局样式首选项，以便于主题和组件更改。
 group: getting-started
+aliases:
+  - "/docs/4.3/getting-started/"
+  - "/docs/getting-started/"
+  - "/getting-started/"
 toc: true
 ---
 
-## Introduction
+## 介绍
 
-In Bootstrap 3, theming was largely driven by variable overrides in LESS, custom CSS, and a separate theme stylesheet that we included in our `dist` files. With some effort, one could completely redesign the look of Bootstrap 3 without touching the core files. Bootstrap 4 provides a familiar, but slightly different approach.
+在 Bootstrap 3 中，主题自定义包括 LESS 中的变量覆盖、自定义 CSS 以及我们包含在 `dist` 文件中的单独主题样式表。 由此我们可以很容易地将 Bootstrap 3 外观重新设计却不触及核心文件。 而 Bootstrap 4 提供了一种熟悉但略有不同的方法。
 
-Now, theming is accomplished by Sass variables, Sass maps, and custom CSS. There's no more dedicated theme stylesheet; instead, you can enable the built-in theme to add gradients, shadows, and more.
+现在，主题定制由 Sass 变量，Sass 映射和自定义 CSS 完成。 现在，主题由 Sass 变量，Sass 映射和自定义 CSS 完成。 不再有专用的主题样式表; 取而代之的是启用内置主题来添加渐变，阴影等。
 
 ## Sass
 
-Utilize our source Sass files to take advantage of variables, maps, mixins, and more. In our build we've increased the Sass rounding precision to 6 (by default it's 5) to prevent issues with browser rounding.
+通过源 Sass 文件来利用变量，贴图，混合等等。在我们的构建中，我们将 Sass 舍入精度提高到 6（默认为 5），以防止浏览器舍入问题。
 
-### File structure
+### 文件结构
 
-Whenever possible, avoid modifying Bootstrap's core files. For Sass, that means creating your own stylesheet that imports Bootstrap so you can modify and extend it. Assuming you're using a package manager like npm, you'll have a file structure that looks like this:
+尽可能避免修改Bootstrap的核心文件。对于 Sass，这意味着创建自己的样式表，导入 Bootstrap，以便你可以修改和扩展它。 假设你正在使用像 npm 这样的包管理器，那么文件结构将如下所示：
 
 {{< highlight text >}}
 your-project/
@@ -30,7 +34,7 @@ your-project/
         └── scss
 {{< /highlight >}}
 
-If you've downloaded our source files and aren't using a package manager, you'll want to manually setup something similar to that structure, keeping Bootstrap's source files separate from your own.
+如果您已经下载了我们的源文件但没有使用包管理器，那么您需要手动设置类似于该结构的内容，使 Bootstrap 的源文件与您自己的源文件分开。
 
 {{< highlight text >}}
 your-project/
@@ -41,9 +45,9 @@ your-project/
     └── scss
 {{< /highlight >}}
 
-### Importing
+### 导入
 
-In your `custom.scss`, you'll import Bootstrap's source Sass files. You have two options: include all of Bootstrap, or pick the parts you need. We encourage the latter, though be aware there are some requirements and dependencies across our components. You also will need to include some JavaScript for our plugins.
+将 Bootstrap 的源 Sass 文件导入 `custom.scss` 中。你有两个选择：导入所有 Bootstrap，或只选择需要的部分。 我们鼓励后者，但要注意我们的组件有一些要求和依赖。 你还需要为我们的插件添加一些 JavaScript。
 
 {{< highlight scss >}}
 // Custom.scss
@@ -69,17 +73,17 @@ In your `custom.scss`, you'll import Bootstrap's source Sass files. You have two
 @import "../node_modules/bootstrap/scss/grid";
 {{< /highlight >}}
 
-With that setup in place, you can begin to modify any of the Sass variables and maps in your `custom.scss`. You can also start to add parts of Bootstrap under the `// Optional` section as needed. We suggest using the full import stack from our `bootstrap.scss` file as your starting point.
+在此基础上，你就可以开始修改 `custom.scss` 中的任何 Sass 变量和映射。您也可以根据需要在 `// Optional` 部分下添加部分 Bootstrap。 我们建议使用 `bootstrap.scss` 文件中的完整导入堆栈作为起点。
 
-### Variable defaults
+### 变量默认值
 
-Every Sass variable in Bootstrap 4 includes the `!default` flag allowing you to override the variable's default value in your own Sass without modifying Bootstrap's source code. Copy and paste variables as needed, modify their values, and remove the `!default` flag. If a variable has already been assigned, then it won't be re-assigned by the default values in Bootstrap.
+Bootstrap 4 中的每个 Sass 变量都包含 `!default` 标志，允许你在不修改 Bootstrap 源代码的情况下覆盖自己 Sass 中变量的默认值。根据需要复制和粘贴变量，修改其值，并删除 `!default` 标志。 如果已经分配了变量，则不会通过 Bootstrap 中的默认值重新分配该变量。
 
-You will find the complete list of Bootstrap's variables in `scss/_variables.scss`. Some variables are set to `null`, these variables don't output the property unless they are overridden in your configuration.
+你将在 `scss / _variables.scss` 中找到Bootstrap变量的完整列表。 某些变量设置为 `null` ，除非在配置中覆盖这些变量，否则这些变量不会输出该属性。
 
-Variable overrides within the same Sass file can come before or after the default variables. However, when overriding across Sass files, your overrides must come before you import Bootstrap's Sass files.
+同一 Sass 文件中的变量覆盖可以在默认变量之前或之后。 但是，当覆盖 Sass 文件时，必须在导入 Bootstrap 的 Sass 文件之前进行覆盖。
 
-Here's an example that changes the `background-color` and `color` for the `<body>` when importing and compiling Bootstrap via npm:
+下面是一个通过 npm 导入和编译 Bootstrap 后更改 `<body>` 的 `background-color` 和 `color` 的示例：
 
 {{< highlight scss >}}
 // Your variable overrides
@@ -90,17 +94,17 @@ $body-color: #111;
 @import "../node_modules/bootstrap/scss/bootstrap";
 {{< /highlight >}}
 
-Repeat as necessary for any variable in Bootstrap, including the global options below.
+根据需要对Bootstrap中的任何变量重复，包括下面的全局选项。
 
-### Maps and loops
+### 映射和循环
 
-Bootstrap 4 includes a handful of Sass maps, key value pairs that make it easier to generate families of related CSS. We use Sass maps for our colors, grid breakpoints, and more. Just like Sass variables, all Sass maps include the `!default` flag and can be overridden and extended.
+Bootstrap 4 包含一些更容易生成相关 CSS 系列的 Sass 映射、键值对。 我们使用 Sass 映射来定义颜色，网格断点等。 就像 Sass 变量一样，所有 Sass 映射都包含 `!default` 标志，可以被覆盖和扩展。
 
-Some of our Sass maps are merged into empty ones by default. This is done to allow easy expansion of a given Sass map, but comes at the cost of making _removing_ items from a map slightly more difficult.
+默认情况下，我们的一些 Sass 映射合并为空地图。 这样做是为了方便扩展给定的 Sass 映射，但是从地图中移除项目更麻烦了。
 
-#### Modify map
+#### 修改映射
 
-To modify an existing color in our `$theme-colors` map, add the following to your custom Sass file:
+要修改 `$theme-colors` 映射中的现有颜色，请将以下内容添加到自定义 Sass 文件中：
 
 {{< highlight scss >}}
 $theme-colors: (
@@ -109,9 +113,9 @@ $theme-colors: (
 );
 {{< /highlight >}}
 
-#### Add to map
+#### 添加到映射
 
-To add a new color to `$theme-colors`, add the new key and value:
+添加新键和值来给 `$theme-colors` 添加新颜色：
 
 {{< highlight scss >}}
 $theme-colors: (
@@ -119,9 +123,9 @@ $theme-colors: (
 );
 {{< /highlight >}}
 
-#### Remove from map
+#### 从映射中移除
 
-To remove colors from `$theme-colors`, or any other map, use `map-remove`. Be aware you must insert it between our requirements and options:
+要从 `$theme-colors` 或任何映射中移除 colors，请使用 `map-remove`。 注意必须在导入 sass 需求和 sass 选项之间插入它：
 
 {{< highlight scss >}}
 // Required
@@ -140,7 +144,7 @@ $theme-colors: map-remove($theme-colors, "info", "light", "dark");
 
 #### Required keys
 
-Bootstrap assumes the presence of some specific keys within Sass maps as we used and extend these ourselves. As you customize the included maps, you may encounter errors where a specific Sass map's key is being used.
+Bootstrap 假设 Sass 映射中存在一些特定的键，因为我们自己使用并扩展了这些键。 在自定义映射时，可能会遇到特定 Sass 映射的键被占用的报错。
 
 For example, we use the `primary`, `success`, and `danger` keys from `$theme-colors` for links, buttons, and form states. Replacing the values of these keys should present no issues, but removing them may cause Sass compilation issues. In these instances, you'll need to modify the Sass code that makes use of those values.
 
