@@ -12,13 +12,13 @@ toc: true
 
 ## 介绍
 
-在 Bootstrap 3 中，主题自定义包括 LESS 中的变量覆盖、自定义 CSS 以及我们包含在 `dist` 文件中的单独主题样式表。 由此我们可以很容易地将 Bootstrap 3 外观重新设计却不触及核心文件。 而 Bootstrap 4 提供了一种熟悉但略有不同的方法。
+在 Bootstrap 3 中，主题自定义包括 LESS 中的变量覆盖、自定义 CSS 以及我们包含在 `dist` 文件中的单独主题样式表。 由此我们可以很容易地将 Bootstrap 3 外观重新设计却不触及核心文件。 而 Bootstrap 4 提供了一种略有不同的方法。
 
-现在，主题定制由 Sass 变量，Sass 映射和自定义 CSS 完成。 现在，主题由 Sass 变量，Sass 映射和自定义 CSS 完成。 不再有专用的主题样式表; 取而代之的是启用内置主题来添加渐变，阴影等。
+现在，主题定制由 Sass 变量，Sass 映射和自定义 CSS 完成。 不再有专用的主题样式表; 取而代之的是启用内置主题来添加渐变，阴影等。
 
 ## Sass
 
-通过源 Sass 文件来利用变量，贴图，混合等等。在我们的构建中，我们将 Sass 舍入精度提高到 6（默认为 5），以防止浏览器舍入问题。
+通过源 Sass 文件来利用变量，映射，混合等等。在我们的构建中，我们将 Sass 舍入精度提高到 6（默认为 5），以防止浏览器舍入问题。
 
 ### 文件结构
 
@@ -142,15 +142,15 @@ $theme-colors: map-remove($theme-colors, "info", "light", "dark");
 ...
 {{< /highlight >}}
 
-#### Required keys
+#### 必要的键
 
 Bootstrap 假设 Sass 映射中存在一些特定的键，因为我们自己使用并扩展了这些键。 在自定义映射时，可能会遇到特定 Sass 映射的键被占用的报错。
 
-For example, we use the `primary`, `success`, and `danger` keys from `$theme-colors` for links, buttons, and form states. Replacing the values of these keys should present no issues, but removing them may cause Sass compilation issues. In these instances, you'll need to modify the Sass code that makes use of those values.
+例如，我们使用 `$theme-colors` 中的 `primary` ， `success` 和 `danger` 键来表示链接，按钮和表单状态。 替换这些键的值没有问题，但删除它们可能会导致 Sass 编译问题。 在这些情况下，则需要修改使用这些值的 Sass 代码。
 
-### Functions
+### 函数
 
-Bootstrap utilizes several Sass functions, but only a subset are applicable to general theming. We've included three functions for getting values from the color maps:
+Bootstrap 使用了几个 Sass 函数，但只有一个子集适用于一般主题。包含了三个从颜色映射中获取值的函数：
 
 {{< highlight scss >}}
 @function color($key: "blue") {
@@ -166,7 +166,7 @@ Bootstrap utilizes several Sass functions, but only a subset are applicable to g
 }
 {{< /highlight >}}
 
-These allow you to pick one color from a Sass map much like how you'd use a color variable from v3.
+这允许你从Sass映射中选择一种颜色，就像使用v3版本中的颜色变量一样。
 
 {{< highlight scss >}}
 .custom-element {
@@ -175,7 +175,7 @@ These allow you to pick one color from a Sass map much like how you'd use a colo
 }
 {{< /highlight >}}
 
-We also have another function for getting a particular _level_ of color from the `$theme-colors` map. Negative level values will lighten the color, while higher levels will darken.
+还有另一个函数，可以从 `$theme-colors` 映射中获取特定级别的颜色。 负值会提亮颜色，而值越大时颜色越暗。
 
 {{< highlight scss >}}
 @function theme-color-level($color-name: "primary", $level: 0) {
@@ -187,7 +187,7 @@ We also have another function for getting a particular _level_ of color from the
 }
 {{< /highlight >}}
 
-In practice, you'd call the function and pass in two parameters: the name of the color from `$theme-colors` (e.g., primary or danger) and a numeric level.
+在实践中，调用该函数并传入两个参数： `$theme-colors`（例如，primary 或 danger ）的颜色名称和数字级别。
 
 {{< highlight scss >}}
 .custom-element {
@@ -195,13 +195,13 @@ In practice, you'd call the function and pass in two parameters: the name of the
 }
 {{< /highlight >}}
 
-Additional functions could be added in the future or your own custom Sass to create level functions for additional Sass maps, or even a generic one if you wanted to be more verbose.
+在将来，可以添加其他函数或者自定义的 Sass 为其他 Sass 映射创建级别功能，如果你想要更详细，甚至可以添加一个通用函数。
 
-### Color contrast
+### 颜色对比
 
-One additional function we include in Bootstrap is the color contrast function, `color-yiq`. It utilizes the [YIQ color space](https://en.wikipedia.org/wiki/YIQ) to automatically return a light (`#fff`) or dark (`#111`) contrast color based on the specified base color. This function is especially useful for mixins or loops where you're generating multiple classes.
+在Bootstrap中包含另一个颜色对比函数 `color-yiq`。 此函数通过 [YIQ color space](https://en.wikipedia.org/wiki/YIQ)，根据指定的基色自动返回亮（`#fff`）或暗（`＃111`）的对比色。 对于生成多个类的混合或循环特别有用。
 
-For example, to generate color swatches from our `$theme-colors` map:
+例如，从 `$theme-colors` 映射生成颜色样本：
 
 {{< highlight scss >}}
 @each $color, $value in $theme-colors {
@@ -211,7 +211,7 @@ For example, to generate color swatches from our `$theme-colors` map:
 }
 {{< /highlight >}}
 
-It can also be used for one-off contrast needs:
+它还可用于一次性对比度需求：
 
 {{< highlight scss >}}
 .custom-element {
@@ -219,7 +219,7 @@ It can also be used for one-off contrast needs:
 }
 {{< /highlight >}}
 
-You can also specify a base color with our color map functions:
+还可以使用我们的颜色映射函数指定基色：
 
 {{< highlight scss >}}
 .custom-element {
@@ -227,35 +227,35 @@ You can also specify a base color with our color map functions:
 }
 {{< /highlight >}}
 
-## Sass options
+## Sass 选项
 
-Customize Bootstrap 4 with our built-in custom variables file and easily toggle global CSS preferences with new `$enable-*` Sass variables. Override a variable's value and recompile with `npm run test` as needed.
+使用内置的自定义变量文件自定义 Bootstrap 4 主题，并通过新的 `$enable-*` Sass 变量轻松切换全局 CSS 首选项。 覆盖变量的值，并根据需要使用 `npm run test` 重新编译。
 
-You can find and customize these variables for key global options in Bootstrap's `scss/_variables.scss` file.
+您可以在Bootstrap `scss/_variables.scss` 文件中找到并自定义这些变量以获取键的全局选项。
 
-| Variable                                     | Values                             | Description                                                                            |
+| 变量                                    | 值                             | 描述                                                                            |
 | -------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
-| `$spacer`                                    | `1rem` (default), or any value > 0 | Specifies the default spacer value to programmatically generate our [spacer utilities]({{< docsref "/utilities/spacing" >}}). |
-| `$enable-rounded`                            | `true` (default) or `false`        | Enables predefined `border-radius` styles on various components. |
-| `$enable-shadows`                            | `true` or `false` (default)        | Enables predefined `box-shadow` styles on various components. |
-| `$enable-gradients`                          | `true` or `false` (default)        | Enables predefined gradients via `background-image` styles on various components. |
-| `$enable-transitions`                        | `true` (default) or `false`        | Enables predefined `transition`s on various components. |
-| `$enable-prefers-reduced-motion-media-query` | `true` (default) or `false`        | Enables the [`prefers-reduced-motion` media query]({{< docsref "/getting-started/accessibility#reduced-motion" >}}), which suppresses certain animations/transitions based on the users' browser/operating system preferences. |
-| `$enable-hover-media-query`                  | `true` or `false` (default)        | **Deprecated** |
-| `$enable-grid-classes`                       | `true` (default) or `false`        | Enables the generation of CSS classes for the grid system (e.g., `.container`, `.row`, `.col-md-1`, etc.). |
-| `$enable-caret`                              | `true` (default) or `false`        | Enables pseudo element caret on `.dropdown-toggle`. |
-| `$enable-pointer-cursor-for-buttons`         | `true` (default) or `false`        | Add "hand" cursor to non-disabled button elements. |
-| `$enable-responsive-font-sizes`              | `true` or `false` (default)        | Enables [responsive font sizes]({{< docsref "/content/typography#responsive-font-sizes" >}}). |
-| `$enable-validation-icons`                   | `true` (default) or `false`        | Enables `background-image` icons within textual inputs and some custom forms for validation states. |
-| `$enable-deprecation-messages`               | `true` or `false` (default)        | Set to `true` to show warnings when using any of the deprecated mixins and functions that are planned to be removed in `v5`. |
+| `$spacer`                                    | `1rem` (default), or any value > 0 | 指定默认的 spacer 值，以编程方式生成 [spacer 实用程序]({{< docsref "/utilities/spacing" >}})。 |
+| `$enable-rounded`                            | `true` (default) or `false`        | 在各种组件上启用预定义的 `border-radius` 样式。 |
+| `$enable-shadows`                            | `true` or `false` (default)        | 在各种组件上启用预定义的 `box-shadow` 样式。 |
+| `$enable-gradients`                          | `true` or `false` (default)        | 通过 `background-image` 样式在各种组件上启用预定义的渐变。 |
+| `$enable-transitions`                        | `true` (default) or `false`        | 在各种组件上启用预定义的 `transition`。 |
+| `$enable-prefers-reduced-motion-media-query` | `true` (default) or `false`        | 启用 [prefers-reduced-motion 媒体查询]({{< docsref "/getting-started/accessibility#reduced-motion" >}}) ，即抑制某些用户的浏览器/操作系统首选项自带的动画/转换。|
+| `$enable-hover-media-query`                  | `true` or `false` (default)        | **弃用** |
+| `$enable-grid-classes`                       | `true` (default) or `false`        | 允许为 grid 系统生成 CSS 类（例如，`.container`，`.row`，`.col-md-1` 等）。 |
+| `$enable-caret`                              | `true` (default) or `false`        | 在 `.dropdown-toggle` 上启用伪元素插入符号。 |
+| `$enable-pointer-cursor-for-buttons`         | `true` (default) or `false`        | 给非禁用按钮元素添加“手型”光标。 |
+| `$enable-responsive-font-sizes`              | `true` or `false` (default)        | 启用[自适应字体大小]({{< docsref "/content/typography#responsive-font-sizes" >}})。  |
+| `$enable-validation-icons`                   | `true` (default) or `false`        | 在文本输入和验证状态的自定义表单中启用 `background-image` 属性的图标。 |
+| `$enable-deprecation-messages`               | `true` or `false` (default)        | 设置为 `true` 后，当使用在 `v5` 中将被移除的mixin和函数时显示警告 |
 
-## Color
+## 颜色
 
-Many of Bootstrap's various components and utilities are built through a series of colors defined in a Sass map. This map can be looped over in Sass to quickly generate a series of rulesets.
+Bootstrap 的许多组件和实用程序的颜色都是通过 Sass 映射定义的。 此映射可以在 Sass 中循环以快速生成一系列规则集。
 
-### All colors
+### 所有的颜色
 
-All colors available in Bootstrap 4, are available as Sass variables and a Sass map in `scss/_variables.scss` file. This will be expanded upon in subsequent minor releases to add additional shades, much like the [grayscale palette](#grays) we already include.
+Bootstrap 4 中提供的所有颜色都可用作 Sass 变量和 `scss/_variables.scss` 文件中的 Sass 映射。 这将在随后的维护性版本中进行扩展，以添加其他明暗程度的颜色，就像我们已经包含的[灰度调色板](#灰度)一样。
 
 <div class="row">
   {{< theme-colors.inline >}}
@@ -269,7 +269,7 @@ All colors available in Bootstrap 4, are available as Sass variables and a Sass 
   {{< /theme-colors.inline >}}
 </div>
 
-Here's how you can use these in your Sass:
+以下是在Sass中使用这些内容的方法：
 
 {{< highlight scss >}}
 // With variable
@@ -279,15 +279,15 @@ Here's how you can use these in your Sass:
 .beta { color: color("purple"); }
 {{< /highlight >}}
 
-[Color utility classes]({{< docsref "/utilities/colors" >}}) are also available for setting `color` and `background-color`.
+[颜色实用程序的类]({{< docsref "/utilities/colors" >}})也可用于设置字体颜色和背景颜色。
 
 {{< callout info >}}
-In the future, we'll aim to provide Sass maps and variables for shades of each color as we've done with the grayscale colors below.
+在未来，我们的目标是为每种颜色的明暗变化提供Sass贴图和变量，就像我们使用下面的灰度颜色一样。
 {{< /callout >}}
 
-### Theme colors
+### 主题颜色
 
-We use a subset of all colors to create a smaller color palette for generating color schemes, also available as Sass variables and a Sass map in Bootstraps's `scss/_variables.scss` file.
+我们给每个颜色一个子集来创建较小的调色板以生成颜色方案，也可以在 Bootstraps 的 `scss/_variables.scss` 文件中作为 Sass 变量和 Sass 映射使用。
 
 <div class="row">
   {{< theme-colors.inline >}}
@@ -299,9 +299,9 @@ We use a subset of all colors to create a smaller color palette for generating c
   {{< /theme-colors.inline >}}
 </div>
 
-### Grays
+### 灰度
 
-An expansive set of gray variables and a Sass map in `scss/_variables.scss` for consistent shades of gray across your project. Note that these are "cool grays", which tend towards a subtle blue tone, rather than neutral grays.
+`scss/_variables.scss` 中的一组灰色变量和一个Sass映射，用于在项目中保持一致的灰度颜色。 请注意，这些是“冷灰色”，倾向于微妙的蓝色调，而不是中性灰色。
 
 <div class="row mb-3">
   <div class="col-md-4">
@@ -313,7 +313,7 @@ An expansive set of gray variables and a Sass map in `scss/_variables.scss` for 
   </div>
 </div>
 
-Within `scss/_variables.scss`, you'll find Bootstrap's color variables and Sass map. Here's an example of the `$colors` Sass map:
+在 `scss/_variables.scss` 中，你将找到 Bootstrap 的颜色变量和 Sass 映射。 这是 `$colors` Sass映射的一个例子：
 
 {{< highlight scss >}}
 $colors: (
@@ -333,17 +333,17 @@ $colors: (
 ) !default;
 {{< /highlight >}}
 
-Add, remove, or modify values within the map to update how they're used in many other components. Unfortunately at this time, not _every_ component utilizes this Sass map. Future updates will strive to improve upon this. Until then, plan on making use of the `${color}` variables and this Sass map.
+添加，删除或修改映射中的值，以更新它们在许多其他组件中的使用方式。但是，目前并非*所有*组件都使用此 Sass 映射。未来的更新将尽力改进这一点。 在此之前，计划使用 `${color}` 变量和这个 Sass 映射。
 
-## Components
+## 组件
 
-Many of Bootstrap's components and utilities are built with `@each` loops that iterate over a Sass map. This is especially helpful for generating variants of a component by our `$theme-colors` and creating responsive variants for each breakpoint. As you customize these Sass maps and recompile, you'll automatically see your changes reflected in these loops.
+Bootstrap 的许多组件和实用程序都是使用 `@each` 循环构建的，这些循环遍历 Sass 映射。 这对于通过 `$theme-colors` 生成组件的变体以及为每个断点创建响应变体特别有用。 当你自定义这些 Sass 地图并重新编译时，将看到这些更改在循环反映出来。
 
-### Modifiers
+### 修饰符
 
-Many of Bootstrap's components are built with a base-modifier class approach. This means the bulk of the styling is contained to a base class (e.g., `.btn`) while style variations are confined to modifier classes (e.g., `.btn-danger`). These modifier classes are built from the `$theme-colors` map to make customizing the number and name of our modifier classes.
+Bootstrap 的许多组件都是使用 base-modifier 类方法构建的。 这意味着大部分样式包含在基类（例如`.btn`）中，而样式变化仅限于修饰符类（例如，`.btn-danger`）。 这些修饰符类是从 `$theme-colors` 映射构建的，用于自定义修饰符类的数量和名称。
 
-Here are two examples of how we loop over the `$theme-colors` map to generate modifiers to the `.alert` component and all our `.bg-*` background utilities.
+以下两个示例展示我们如何遍历 `$theme-colors` 地图以生成 `.alert` 组件和所有 `.bg- *` 背景实用程序的修饰符。
 
 {{< highlight scss >}}
 // Generate alert modifier classes
@@ -359,9 +359,9 @@ Here are two examples of how we loop over the `$theme-colors` map to generate mo
 }
 {{< /highlight >}}
 
-### Responsive
+### 响应式
 
-These Sass loops aren't limited to color maps, either. You can also generate responsive variations of your components or utilities. Take for example our responsive text alignment utilities where we mix an `@each` loop for the `$grid-breakpoints` Sass map with a media query include.
+这些 Sass 循环也不仅限于颜色映射。 还可以生成组件或实用程序的响应式变体。 以我们的响应式文本对齐实用程序为例，我们将` $grid-breakpoints` Sass 映射的 `@each` 循环与媒体查询包括混合。
 
 {{< highlight scss >}}
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -375,15 +375,15 @@ These Sass loops aren't limited to color maps, either. You can also generate res
 }
 {{< /highlight >}}
 
-Should you need to modify your `$grid-breakpoints`, your changes will apply to all the loops iterating over that map.
+如果你需要修改 `$grid-breakpoints`，更改结果将应用于迭代该映射的所有循环。
 
-## CSS variables
+## CSS 变量
 
-Bootstrap 4 includes around two dozen [CSS custom properties (variables)](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) in its compiled CSS. These provide easy access to commonly used values like our theme colors, breakpoints, and primary font stacks when working in your browser's Inspector, a code sandbox, or general prototyping.
+Bootstrap 4 在其编译的 CSS 中包含大约24个[ CSS 自定义属性（变量）](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)。 在浏览器的 Inspector，代码沙箱或一般原型设计中工作时，这些可以轻松访问常用值，如主题颜色，断点和主要字体堆栈。
 
-### Available variables
+### 可用变量
 
-Here are the variables we include (note that the `:root` is required). They're located in our `_root.scss` file.
+以下是我们包含的变量（请注意：`root` 是必需的）。 它们位于 `_root.scss` 文件中。
 
 {{< highlight css >}}
 :root {
@@ -418,9 +418,9 @@ Here are the variables we include (note that the `:root` is required). They're l
 }
 {{< /highlight >}}
 
-### Examples
+### 示例
 
-CSS variables offer similar flexibility to Sass's variables, but without the need for compilation before being served to the browser. For example, here we're resetting our page's font and link styles with CSS variables.
+CSS 变量为 Sass 的变量提供了类似的灵活性，区别在它提供给浏览器之前无需编译。 例如，这里我们用 CSS 变量重置页面的字体和链接样式。
 
 {{< highlight css >}}
 body {
@@ -431,11 +431,11 @@ a {
 }
 {{< /highlight >}}
 
-### Breakpoint variables
+### 断点变量
 
-While we originally included breakpoints in our CSS variables (e.g., `--breakpoint-md`), **these are not supported in media queries**, but they can still be used _within_ rulesets in media queries. These breakpoint variables remain in the compiled CSS for backward compatibility given they can be utilized by JavaScript. [Learn more in the spec](https://www.w3.org/TR/css-variables-1/#using-variables).
+虽然我们最初在 CSS 变量中包含断点（例如， `- burstpoint-md`），**而媒体查询中不支持这些断点**，不过它们仍可在媒体查询的规则集中使用。 这些断点变量保留在已编译的CSS中，以便向后兼容，因为它们可以被JavaScript使用。 [在规范中了解更多信息](https://www.w3.org/TR/css-variables-1/#using-variables)。
 
-Here's an example of **what's not supported:**
+以下是**不支持**的示例：
 
 {{< highlight css >}}
 @media (min-width: var(--breakpoint-sm)) {
@@ -443,7 +443,7 @@ Here's an example of **what's not supported:**
 }
 {{< /highlight >}}
 
-And here's an example of **what is supported:**
+以下是**支持**的示例：
 
 {{< highlight css >}}
 @media (min-width: 768px) {
