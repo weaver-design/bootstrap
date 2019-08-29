@@ -1,48 +1,51 @@
 ---
 layout: docs
-title: Webpack and bundlers
-description: Learn how to include Bootstrap in your project using Webpack or other bundlers.
+title: Webpack 和捆绑包 | 译：@GitHuboooSHY
+description: 了解如何使用 Webpack 或其他捆绑包在项目中引入 Bootstrap。
 group: getting-started
+aliases:
+  - "/docs/4.3/getting-started/"
+  - "/docs/getting-started/"
+  - "/getting-started/"
 toc: true
 ---
 
-## Installing Bootstrap
+## 安装 Bootstrap
 
-[Install bootstrap]({{< docsref "/getting-started/download#npm" >}}) as a Node.js module using npm.
+ 使用 npm 将 [bootstrap 安装]({{< docsref "/getting-started/download#npm" >}})为 Node.js 模块
 
-## Importing JavaScript
+## 导入 JavaScript
 
-Import [Bootstrap's JavaScript]({{< docsref "/getting-started/javascript" >}}) by adding this line to your app's entry point (usually `index.js` or `app.js`):
+通过将此行添加到应用程序的入口点（通常是 `index.js` 或 `app.js`）来导入[ Bootstrap 的 JavaScript]({{< docsref "/getting-started/javascript" >}})：
 
 {{< highlight js >}}
 // You can specify which plugins you need
 import { Tooltip, Toast, Popover } from 'bootstrap';
 {{< /highlight >}}
 
-Alternatively, if you only need just a few of our plugins, you may **import plugins individually** as needed:
+或者，如果你只需要我们的部分插件，可以根据需要**单独导入插件**：
 
 {{< highlight js >}}
 import Alert from 'bootstrap/js/dist/alert';
 ...
 {{< /highlight >}}
 
-Bootstrap dependends on [Popper](https://popper.js.org/), which is speicified in the `peerDependencies` property.
-This means that you will have to make sure to add both of them to your `package.json` using `npm install popper.js`.
+Bootstrap 依赖于 [Popper](https://popper.js.org/)，它在 `peerDependencies` 属性中被指定。 这意味着您必须确保使用 `npm install popper.js` 将它们添加到 `package.json` 中。
 
-## Importing Styles
+## 导入样式
 
-### Importing Precompiled Sass
+### 导入预编译的 Sass
 
-To enjoy the full potential of Bootstrap and customize it to your needs, use the source files as a part of your project's bundling process.
+要充分发挥 Bootstrap 的潜力并根据需要进行自定义，请将源文件用作项目捆绑过程的一部分。
 
-First, create your own `_custom.scss` and use it to override the [built-in custom variables]({{< docsref "/getting-started/theming" >}}). Then, use your main Sass file to import your custom variables, followed by Bootstrap:
+首先，创建自己的 `_custom.scss` 并使用它来覆盖[内置的自定义变量]({{< docsref "/getting-started/theming" >}})。 然后，使用你的主 `Sass` 文件导入自定义变量，然后使用 Bootstrap：
 
 {{< highlight scss >}}
 @import "custom";
 @import "~bootstrap/scss/bootstrap";
 {{< /highlight >}}
 
-For Bootstrap to compile, make sure you install and use the required loaders: [sass-loader](https://github.com/webpack-contrib/sass-loader), [postcss-loader](https://github.com/postcss/postcss-loader) with [Autoprefixer](https://github.com/postcss/autoprefixer#webpack). With minimal setup, your webpack config should include this rule or similar:
+要编译 Bootstrap，请确保安装并使用所需的加载器：[sass-loader](https://github.com/webpack-contrib/sass-loader)，带有 [Autoprefixer](https://github.com/postcss/autoprefixer#webpack) 的 [postcss-loader](https://github.com/postcss/postcss-loader)。 你的 webpack 配置应包括此规则或类似规则以实现最精简的设置：
 
 {{< highlight js >}}
 ...
@@ -68,15 +71,15 @@ For Bootstrap to compile, make sure you install and use the required loaders: [s
 ...
 {{< /highlight >}}
 
-### Importing Compiled CSS
+### 导入编译的 CSS
 
-Alternatively, you may use Bootstrap's ready-to-use CSS by simply adding this line to your project's entry point:
+或者，将此行添加到项目的入口点来使用Bootstrap的即用型CSS：
 
 {{< highlight js >}}
 import 'bootstrap/dist/css/bootstrap.min.css';
 {{< /highlight >}}
 
-In this case you may use your existing rule for `css` without any special modifications to webpack config, except you don't need `sass-loader` just [style-loader](https://github.com/webpack-contrib/style-loader) and [css-loader](https://github.com/webpack-contrib/css-loader).
+在这种情况下，你可以使用现有的 `css` 规则，而无需对webpack配置进行任何特殊修改，除非你不需要 `sass-loader`，只用 [style-loader](https://github.com/webpack-contrib/style-loader) 和 [css-loader](https://github.com/webpack-contrib/css-loader) 。
 
 {{< highlight js >}}
 ...
